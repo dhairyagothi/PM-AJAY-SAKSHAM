@@ -1,11 +1,6 @@
-import { Link } from "@tanstack/react-router";
-import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
-export const Route = createFileRoute("/language")({
-  component: LanguagePage,
-});
-
-function LanguagePage() {
+export default function LanguagePage() {
   return (
     <div className="min-h-screen bg-[#EEF5FC] p-4 py-8 text-[#1F2937]">
       <div className="mx-auto max-w-3xl">

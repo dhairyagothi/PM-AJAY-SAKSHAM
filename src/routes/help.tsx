@@ -1,13 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/help")({
-  component: HelpPage,
-});
-
-function HelpPage() {
+export default function HelpPage() {
   return (
     <GovernmentLayout title="Help" subtitle="Support resources for beneficiaries and applicants.">
       <div className="space-y-4">

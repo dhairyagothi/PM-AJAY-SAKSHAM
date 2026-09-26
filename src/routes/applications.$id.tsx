@@ -1,14 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { useParams } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/applications/$id")({
-  component: ApplicationDetailPage,
-});
-
-function ApplicationDetailPage() {
-  const { id } = Route.useParams();
+export default function ApplicationDetailPage() {
+  const { id = "unknown" } = useParams<{ id: string }>();
 
   return (
     <GovernmentLayout title="Application status" subtitle={`Review progress for ${id}`}>

@@ -1,14 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/quiz")({
-  component: QuizPage,
-});
-
-function QuizPage() {
+export default function QuizPage() {
   return (
     <GovernmentLayout title="Quiz" subtitle="Question 4 of 5">
       <Card className="border-[#D6DEE8] bg-white shadow-sm">

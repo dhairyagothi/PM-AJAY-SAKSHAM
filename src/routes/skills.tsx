@@ -1,13 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/skills")({
-  component: SkillsPage,
-});
-
-function SkillsPage() {
+export default function SkillsPage() {
   const skillRows = [
     ["Electrical Repair", 4],
     ["Basic Wiring", 4],

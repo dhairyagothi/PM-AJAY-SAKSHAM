@@ -4,7 +4,7 @@
 
 # PM-AJAY SAKSHAM
 
-A TanStack Start app for beneficiary-facing skills, learning, and opportunity discovery.
+A React single-page application built with Vite for beneficiary-facing skills, learning, and opportunity discovery.
 
 ## Getting started
 
@@ -18,9 +18,8 @@ npm run build
 ## Deploy to Vercel
 
 Import the repository into Vercel and use the `Vite` framework preset. The
-repository's `vercel.json` builds the TanStack Start server, publishes
-`dist/client` as static assets, and routes page requests through the SSR
-function in `api/ssr.js`.
+repository's `vercel.json` publishes `dist` and rewrites client-side routes to
+`index.html`.
 
 ## Development
 

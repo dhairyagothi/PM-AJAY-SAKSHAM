@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { Bell, BookOpen, Briefcase, Home, Mic, ShieldCheck, User, Wallet } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

@@ -1,14 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 import { notifications } from "@/lib/mockData";
 
-export const Route = createFileRoute("/notifications")({
-  component: NotificationsPage,
-});
-
-function NotificationsPage() {
+export default function NotificationsPage() {
   return (
     <GovernmentLayout title="Notifications" subtitle="Updates from PM-AJAY SAKSHAM and your training partners.">
       <div className="space-y-4">

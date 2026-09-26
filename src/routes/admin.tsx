@@ -1,12 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 
-export const Route = createFileRoute("/admin")({
-  component: AdminPage,
-});
-
-function AdminPage() {
+export default function AdminPage() {
   return (
     <div className="min-h-screen bg-[#EEF5FC] p-6">
       <div className="mx-auto max-w-6xl">

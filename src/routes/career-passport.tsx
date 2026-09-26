@@ -1,13 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/career-passport")({
-  component: CareerPassportPage,
-});
-
-function CareerPassportPage() {
+export default function CareerPassportPage() {
   return (
     <GovernmentLayout title="Career Passport" subtitle="Your skill, learning, and opportunity record.">
       <div className="grid gap-6 md:grid-cols-3">

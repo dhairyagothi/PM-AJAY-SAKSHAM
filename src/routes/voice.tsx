@@ -1,13 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Mic } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/voice")({
-  component: VoicePage,
-});
-
-function VoicePage() {
+export default function VoicePage() {
   return (
     <div className="min-h-screen bg-[#EEF5FC] p-4 py-8">
       <div className="mx-auto max-w-md rounded-2xl border border-[#D6DEE8] bg-white p-6 shadow-sm">

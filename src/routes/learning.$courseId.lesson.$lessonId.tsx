@@ -1,13 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/learning/$courseId/lesson/$lessonId")({
-  component: LessonPage,
-});
-
-function LessonPage() {
+export default function LessonPage() {
   return (
     <GovernmentLayout title="Lesson 3 of 7" subtitle="Electrical Safety">
       <div className="rounded-3xl border border-[#D6DEE8] bg-white p-5 shadow-sm">

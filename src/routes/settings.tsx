@@ -1,13 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/settings")({
-  component: SettingsPage,
-});
-
-function SettingsPage() {
+export default function SettingsPage() {
   return (
     <GovernmentLayout title="Settings" subtitle="Adjust language, alerts, and how the app works for you.">
       <div className="space-y-4">

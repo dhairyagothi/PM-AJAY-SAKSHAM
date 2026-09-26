@@ -1,15 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 import { opportunities } from "@/lib/mockData";
 
-export const Route = createFileRoute("/opportunities")({
-  component: OpportunitiesPage,
-});
-
-function OpportunitiesPage() {
+export default function OpportunitiesPage() {
   return (
     <GovernmentLayout title="Opportunities" subtitle="Recommended for you by PM-AJAY SAKSHAM.">
       <div className="mb-6 flex flex-wrap gap-2">
@@ -59,8 +55,7 @@ function OpportunitiesPage() {
 
               <div className="mt-5 flex gap-2">
                 <Link
-                  to="/opportunities/$opportunityId"
-                  params={{ opportunityId: item.id }}
+                  to={`/opportunities/${item.id}`}
                   className="inline-flex items-center justify-center rounded-xl bg-[#0B3A82] px-4 py-2 text-sm font-semibold text-white hover:bg-[#12305B]"
                 >
                   View

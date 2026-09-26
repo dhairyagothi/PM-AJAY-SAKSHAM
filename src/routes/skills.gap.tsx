@@ -1,13 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/skills/gap")({
-  component: SkillGapPage,
-});
-
-function SkillGapPage() {
+export default function SkillGapPage() {
   return (
     <GovernmentLayout title="Skill Gap" subtitle="Your readiness for the Solar Technician role.">
       <Card className="border-[#D6DEE8] bg-white shadow-sm">

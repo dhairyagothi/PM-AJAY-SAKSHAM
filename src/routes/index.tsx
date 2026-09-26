@@ -1,11 +1,7 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Mic } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-  component: WelcomePage,
-});
-
-function WelcomePage() {
+export default function WelcomePage() {
   return (
     <div className="min-h-screen bg-[#EEF5FC] text-[#1F2937]">
       <header className="bg-[#0B3A82] text-white">

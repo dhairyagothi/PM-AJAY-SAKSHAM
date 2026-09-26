@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { BookOpen, Briefcase, CircleHelp, MapPin, Mic, ShieldCheck, Sparkles, Star } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -8,11 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { GovernmentLayout } from "@/components/government-layout";
 import { beneficiary, notifications, opportunities } from "@/lib/mockData";
 
-export const Route = createFileRoute("/home")({
-  component: HomePage,
-});
-
-function HomePage() {
+export default function HomePage() {
   const recommended = opportunities[0];
 
   if (!recommended) {
@@ -53,8 +49,7 @@ function HomePage() {
               </div>
             </div>
             <Link
-              to="/learning/$courseId/lesson/$lessonId"
-              params={{ courseId: "solar-path", lessonId: "lesson-3" }}
+              to="/learning/solar-path/lesson/lesson-3"
               className="inline-flex items-center justify-center rounded-xl bg-[#17854A] px-4 py-3 text-sm font-semibold text-white hover:bg-[#12713d]"
             >
               Continue
@@ -89,8 +84,7 @@ function HomePage() {
 
                 <div className="mt-4 flex gap-2">
                   <Link
-                    to="/opportunities/$opportunityId"
-                    params={{ opportunityId: recommended.id }}
+                    to={`/opportunities/${recommended.id}`}
                     className="inline-flex items-center justify-center rounded-xl bg-[#0B3A82] px-4 py-2 text-sm font-semibold text-white hover:bg-[#12305B]"
                   >
                     View Opportunity

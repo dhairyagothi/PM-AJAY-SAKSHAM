@@ -1,13 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 
-export const Route = createFileRoute("/applications")({
-  component: ApplicationsPage,
-});
-
-function ApplicationsPage() {
+export default function ApplicationsPage() {
   const applications = [
     { id: "APP-1042", title: "Solar Technician", status: "Under review" },
     { id: "APP-2041", title: "Electrician Helper", status: "Shortlisted" },

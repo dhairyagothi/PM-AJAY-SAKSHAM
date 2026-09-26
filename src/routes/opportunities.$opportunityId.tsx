@@ -1,16 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 import { opportunities } from "@/lib/mockData";
 
-export const Route = createFileRoute("/opportunities/$opportunityId")({
-  component: OpportunityDetailPage,
-});
-
-function OpportunityDetailPage() {
-  const { opportunityId } = Route.useParams();
+export default function OpportunityDetailPage() {
+  const { opportunityId = "" } = useParams<{ opportunityId: string }>();
   const opportunity = opportunities.find((item) => item.id === opportunityId) ?? opportunities[0];
 
   if (!opportunity) {

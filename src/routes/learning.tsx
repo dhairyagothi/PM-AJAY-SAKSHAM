@@ -1,14 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 import { learningLessons } from "@/lib/mockData";
 
-export const Route = createFileRoute("/learning")({
-  component: LearningPage,
-});
-
-function LearningPage() {
+export default function LearningPage() {
   return (
     <GovernmentLayout title="My Learning Journey" subtitle="Progress-driven, skill-first learning for your next role.">
       <div className="space-y-6">
@@ -37,8 +33,7 @@ function LearningPage() {
               {learningLessons.map((lesson) => (
                 <Link
                   key={lesson.id}
-                  to="/learning/$courseId/lesson/$lessonId"
-                  params={{ courseId: lesson.courseId, lessonId: lesson.id }}
+                  to={`/learning/${lesson.courseId}/lesson/${lesson.id}`}
                   className={`flex items-center justify-between rounded-xl border p-3 text-sm font-medium ${
                     lesson.completed ? "border-[#D6DEE8] bg-[#EEF8F1] text-[#17854A]" : "border-[#D6DEE8] bg-[#F8FAFC] text-[#12305B]"
                   }`}

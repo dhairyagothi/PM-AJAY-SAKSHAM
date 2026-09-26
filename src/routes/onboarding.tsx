@@ -1,14 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-export const Route = createFileRoute("/onboarding")({
-  component: OnboardingPage,
-});
-
-function OnboardingPage() {
+export default function OnboardingPage() {
   const [step, setStep] = useState(0);
 
   const prompts = [

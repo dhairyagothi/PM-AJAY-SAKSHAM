@@ -1,14 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
 import { beneficiary } from "@/lib/mockData";
 
-export const Route = createFileRoute("/profile")({
-  component: ProfilePage,
-});
-
-function ProfilePage() {
+export default function ProfilePage() {
   return (
     <GovernmentLayout title="Profile" subtitle="Your beneficiary information and preferences.">
       <div className="grid gap-6 md:grid-cols-2">
