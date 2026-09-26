@@ -21,6 +21,8 @@ import SettingsPage from "./routes/settings";
 import SkillGapPage from "./routes/skills.gap";
 import SkillsPage from "./routes/skills";
 import VoicePage from "./routes/voice";
+import GoogleTranslate from "./components/google-translate";
+import { SakshamProvider, useSakshamStore } from "./store/useSakshamStore";
 
 function NotFoundPage() {
   return (
@@ -36,32 +38,45 @@ function NotFoundPage() {
   );
 }
 
+function AppRoutes() {
+  const { language } = useSakshamStore();
+
+  return (
+    <>
+      {language !== "en" && <GoogleTranslate visible={false} />}
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/applications" element={<ApplicationsPage />} />
+        <Route path="/applications/:id" element={<ApplicationDetailPage />} />
+        <Route path="/career-passport" element={<CareerPassportPage />} />
+        <Route path="/help" element={<HelpPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/language" element={<LanguagePage />} />
+        <Route path="/learning" element={<LearningPage />} />
+        <Route path="/learning/:courseId/lesson/:lessonId" element={<LessonPage />} />
+        <Route path="/learning/:courseId/quiz" element={<QuizPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/notifications" element={<NotificationsPage />} />
+        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/opportunities" element={<OpportunitiesPage />} />
+        <Route path="/opportunities/:opportunityId" element={<OpportunityDetailPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/quiz" element={<QuizPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/skills/gap" element={<SkillGapPage />} />
+        <Route path="/voice" element={<VoicePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </>
+  );
+}
+
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<WelcomePage />} />
-      <Route path="/admin" element={<AdminPage />} />
-      <Route path="/applications" element={<ApplicationsPage />} />
-      <Route path="/applications/:id" element={<ApplicationDetailPage />} />
-      <Route path="/career-passport" element={<CareerPassportPage />} />
-      <Route path="/help" element={<HelpPage />} />
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/language" element={<LanguagePage />} />
-      <Route path="/learning" element={<LearningPage />} />
-      <Route path="/learning/:courseId/lesson/:lessonId" element={<LessonPage />} />
-      <Route path="/learning/:courseId/quiz" element={<QuizPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/notifications" element={<NotificationsPage />} />
-      <Route path="/onboarding" element={<OnboardingPage />} />
-      <Route path="/opportunities" element={<OpportunitiesPage />} />
-      <Route path="/opportunities/:opportunityId" element={<OpportunityDetailPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/quiz" element={<QuizPage />} />
-      <Route path="/settings" element={<SettingsPage />} />
-      <Route path="/skills" element={<SkillsPage />} />
-      <Route path="/skills/gap" element={<SkillGapPage />} />
-      <Route path="/voice" element={<VoicePage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+    <SakshamProvider>
+      <AppRoutes />
+    </SakshamProvider>
   );
 }

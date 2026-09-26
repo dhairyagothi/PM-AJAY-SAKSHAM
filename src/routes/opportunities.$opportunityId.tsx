@@ -128,10 +128,14 @@ export default function OpportunityDetailPage() {
           </CardContent>
         </Card>
 
-        <p className="px-1 text-xs text-[#5B6573]">
-          Listing details shown for prototype demonstration. Verify official information before
-          applying.
-        </p>
+        <Card className="border-[#dbe7f2] bg-white shadow-sm">
+          <CardContent className="p-4 sm:p-5">
+            <div className="flex items-start justify-between gap-3"><div><h2 className="font-bold text-[#12305B]">Application process</h2><p className="mt-1 text-sm text-[#52677F]">Follow these steps to apply for this prototype listing.</p></div><Badge className={opportunity.applicationMode === "online" ? "bg-[#EAF5FF] text-[#0B55A2]" : "bg-[#FFF4E6] text-[#A85B10]"}>{opportunity.applicationMode === "online" ? "Online process" : "Offline registration"}</Badge></div>
+            <ol className="mt-4 space-y-3">{opportunity.applicationSteps.map((step, index) => <li key={step} className="flex gap-3 text-sm text-[#294968]"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#0B55A2] text-xs font-bold text-white">{index + 1}</span><span>{step}</span></li>)}</ol>
+            {opportunity.applicationMode === "offline" ? <div className="mt-4 rounded-xl bg-[#FFF9F1] p-3 text-sm text-[#7a4a16]"><strong>Where to go:</strong> {opportunity.applicationPlace}</div> : <div className="mt-4 rounded-xl bg-[#F4FBF6] p-3 text-sm text-[#087748]"><strong>Online link:</strong> Verify the official government URL before submitting documents.</div>}
+          </CardContent>
+        </Card>
+        <p className="px-1 text-xs text-[#5B6573]">Prototype government data. Saksham explains the process, but does not submit an application or verify live government availability.</p>
         <div className="grid gap-2 sm:grid-cols-2">
           <Link
             to="/learning"
@@ -139,12 +143,7 @@ export default function OpportunityDetailPage() {
           >
             Start Learning Path <ArrowRight className="h-4 w-4" />
           </Link>
-          <a
-            href={opportunity.applicationUrl}
-            className="inline-flex w-full items-center justify-center rounded-md border border-[#D6DEE8] bg-white px-4 py-3 text-sm font-semibold text-[#12305B]"
-          >
-            View application link
-          </a>
+          {opportunity.applicationMode === "online" ? <a href={opportunity.applicationUrl} target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-md border border-[#D6DEE8] bg-white px-4 py-3 text-sm font-semibold text-[#12305B]">Open official process</a> : <Link to="/profile" className="inline-flex w-full items-center justify-center rounded-md border border-[#D6DEE8] bg-white px-4 py-3 text-sm font-semibold text-[#12305B]">View registration location</Link>}
         </div>
       </div>
     </GovernmentLayout>

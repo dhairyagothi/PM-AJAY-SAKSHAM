@@ -6,14 +6,14 @@ import {
   Briefcase,
   FileText,
   Home,
+  Languages,
   Menu,
   Mic,
   ShieldCheck,
   User,
   X,
 } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { useSakshamStore } from "@/store/useSakshamStore";
 
 const navItems = [
   { label: "Home", to: "/home", icon: Home },
@@ -24,7 +24,13 @@ const navItems = [
   { label: "Profile", to: "/profile", icon: User },
 ];
 
-const mobileNavItems = navItems.filter(({ label }) => label !== "Career Passport");
+const mobileNavItems = [
+  navItems[0],
+  navItems[1],
+  navItems[2],
+  navItems[4],
+  navItems[5],
+];
 
 export function GovernmentLayout({
   title,
@@ -37,61 +43,39 @@ export function GovernmentLayout({
 }) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { guide } = useSakshamStore();
+  const showMentorButton = !["/", "/language", "/login", "/onboarding"].includes(location.pathname);
 
   return (
-    <div className="min-h-screen bg-[#F5F8FC] pb-20 text-[#1F2937] md:pb-0">
-      <header className="hidden bg-[#0B3A82] text-white md:block">
-        <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-[10px] font-bold tracking-[0.2em]">
-            GOI
-          </div>
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-white/70">
-              Government of India
-            </p>
-            <p className="text-sm font-semibold">Ministry of Social Justice & Empowerment</p>
-          </div>
-          <div className="ml-auto hidden items-center gap-2 sm:flex">
-            <Button variant="ghost" className="h-8 px-2 text-white hover:bg-white/10">
-              हिं
-            </Button>
-            <Button variant="ghost" className="h-8 px-2 text-white hover:bg-white/10">
-              EN
-            </Button>
+    <div className="min-h-screen bg-[#f8fafc] pb-20 text-[#1F2937] md:pb-0">
+      <header className="relative z-50 border-b border-[#dbe4ef] bg-white">
+        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 md:px-8">
+          <img src="/goi.png" alt="Government of India" className="h-11 w-auto max-w-[82px] object-contain object-left" />
+          <Link to="/home" className="leading-none text-[#0b3a82]">
+            <span className="block text-[15px] font-semibold tracking-tight">PM-AJAY</span>
+            <span className="block text-[21px] font-bold tracking-tight">SAKSHAM</span>
+            <span className="block text-[9px] tracking-wide text-[#5d7392]">Pradhan Mantri - Anusuchit Jati Abhyuday Yojna</span>
+          </Link>
+          <div className="ml-auto flex items-center gap-2">
+            <Link to="/language" aria-label="Choose language" className="inline-flex items-center gap-1.5 rounded-md border border-[#d6e0ec] px-2.5 py-1.5 text-xs font-semibold text-[#12305b]"><Languages className="h-4 w-4 text-[#0b55a2]" /> EN</Link>
+            <Link to="/notifications" className="hidden rounded-md p-2 text-[#0b3a82] hover:bg-[#eef5fc] md:block" aria-label="Notifications"><Bell className="h-5 w-5" /></Link>
+            <button type="button" className="relative z-[110] grid h-9 w-9 place-items-center rounded-md text-[#12305b] md:hidden" onClick={() => setMenuOpen((open) => !open)} aria-label="Open menu" aria-expanded={menuOpen}>
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
       </header>
 
-      <div className="hidden bg-[#12305B] text-white md:block">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <div>
-            <p className="text-lg font-bold">PM-AJAY SAKSHAM</p>
-          </div>
-          <div className="flex items-center gap-3 text-sm text-white/70">
-            <Link
-              to="/notifications"
-              className="flex items-center gap-1 transition hover:text-white"
-            >
-              <Bell className="h-4 w-4" /> Alerts
-            </Link>
-            <Link to="/voice" className="flex items-center gap-1 transition hover:text-white">
-              <Mic className="h-4 w-4" /> Voice
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <nav className="hidden border-b border-[#D6DEE8] bg-white md:block">
-        <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-2">
+      <nav className="hidden border-b border-[#dbe4ef] bg-white md:block">
+        <div className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-8 py-1.5">
           {navItems.slice(0, 5).map(({ label, to, icon: Icon }) => {
             const active = location.pathname === to || location.pathname.startsWith(`${to}/`);
             return (
               <Link
                 key={label}
                 to={to}
-                className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
-                  active ? "bg-[#EEF5FC] text-[#0B3A82]" : "text-[#5B6573]"
-                }`}
+                className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${active ? "bg-[#EEF5FC] text-[#0B3A82]" : "text-[#5B6573]"
+                  }`}
               >
                 <Icon className="h-4 w-4" />
                 {label}
@@ -101,34 +85,9 @@ export function GovernmentLayout({
         </div>
       </nav>
 
-      <header className="sticky top-0 z-40 border-b border-[#D6DEE8] bg-white md:hidden">
-        <div className="flex h-[60px] items-center gap-2 px-3">
-          <Link to="/home" className="min-w-0 flex-1" aria-label="PM-AJAY Saksham home">
-            <img
-              src="/logo.png"
-              alt="PM-AJAY Saksham"
-              className="h-10 w-[142px] object-contain object-left"
-            />
-          </Link>
-          <Link
-            to="/language"
-            className="h-9 rounded-md border border-[#D6DEE8] px-2 text-xs font-semibold text-[#0B3A82]"
-            aria-label="Choose language"
-          >
-            EN⌄
-          </Link>
-          <button
-            type="button"
-            className="grid h-10 w-10 place-items-center rounded-md text-[#12305B] hover:bg-[#EEF5FC]"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
+      <div className="md:hidden">
         {menuOpen && (
-          <nav className="absolute left-0 right-0 top-full border-b border-[#D6DEE8] bg-white p-2 shadow-lg">
+          <nav className="fixed inset-x-3 top-[72px] z-[100] rounded-2xl border border-[#D6DEE8] bg-white p-2 shadow-2xl shadow-[#12305b]/15">
             {navItems.map(({ label, to, icon: Icon }) => (
               <Link
                 key={label}
@@ -140,6 +99,13 @@ export function GovernmentLayout({
                 {label}
               </Link>
             ))}
+            <Link
+              to="/language"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 rounded-md px-3 py-3 text-sm font-semibold text-[#12305B] hover:bg-[#EEF5FC]"
+            >
+              <span className="grid h-4 w-4 place-items-center text-xs text-[#0B3A82]">अ</span> Choose language
+            </Link>
             <Link
               to="/notifications"
               onClick={() => setMenuOpen(false)}
@@ -156,9 +122,9 @@ export function GovernmentLayout({
             </Link>
           </nav>
         )}
-      </header>
+      </div>
 
-      <main className="mx-auto max-w-6xl px-4 py-4 md:py-6">
+      <main className="mx-auto max-w-7xl px-4 py-5 md:px-8 md:py-8">
         {(title || subtitle) && (
           <div className="mb-4 md:mb-6">
             {title && <h1 className="text-xl font-bold text-[#12305B] md:text-3xl">{title}</h1>}
@@ -198,6 +164,12 @@ export function GovernmentLayout({
             );
           })}
         </nav>
+      )}
+      {showMentorButton && (
+        <Link to="/voice" aria-label={`Talk to ${guide === "sakhi" ? "Sakhi" : "Saksham"}`} className="mentor-fab group fixed bottom-[76px] right-4 z-50 md:bottom-6 md:right-6">
+          <img src={guide === "sakhi" ? "/female-mascot.png" : "/male-mascot.png"} alt="" className="h-14 w-14 object-contain drop-shadow-lg transition group-hover:scale-110" />
+          <span className="absolute -bottom-1 right-0 rounded-full bg-[#0b55a2] px-2 py-0.5 text-[10px] font-bold text-white">{guide === "sakhi" ? "Sakhi" : "Saksham"}</span>
+        </Link>
       )}
     </div>
   );

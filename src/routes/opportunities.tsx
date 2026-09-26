@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { GovernmentLayout } from "@/components/government-layout";
+import LocationAccess from "@/components/location-access";
 import { opportunities } from "@/lib/mockData";
 
 export default function OpportunitiesPage() {
@@ -24,6 +25,8 @@ export default function OpportunitiesPage() {
           </button>
         ))}
       </div>
+
+      <div className="mb-5 grid gap-4 md:grid-cols-[1fr_.9fr] md:items-start"><div className="rounded-2xl border border-[#cde8d8] bg-[#f4fbf6] p-4"><p className="text-sm font-bold text-[#087748]">Nearby opportunities for Ravi</p><p className="mt-1 text-sm text-[#527092]">Showing opportunities around Bhopal, Madhya Pradesh first.</p></div><LocationAccess /></div>
 
       <div className="grid gap-5 lg:grid-cols-2">
         {opportunities.map((item) => (

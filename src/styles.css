@@ -110,7 +110,7 @@
   --light-blue: oklch(0.97 0.015 245);
   --light-green: oklch(0.96 0.025 150);
   --ink: oklch(0.25 0.09 254);
-  --font-civic-family: "Times New Roman", "Liberation Serif", serif;
+  --font-civic-family: "Segoe UI", "Noto Sans", Arial, sans-serif;
 }
 
 .dark {
@@ -153,7 +153,7 @@
   --light-blue: oklch(0.25 0.04 255);
   --light-green: oklch(0.25 0.05 151);
   --ink: oklch(0.93 0.02 255);
-  --font-civic-family: "Times New Roman", "Liberation Serif", serif;
+  --font-civic-family: "Segoe UI", "Noto Sans", Arial, sans-serif;
 }
 
 @layer base {
@@ -176,3 +176,24 @@
 .civic-fill { animation: civic-fill 1000ms cubic-bezier(.32,.72,0,1) both; }
 .civic-pulse { animation: civic-pulse 1800ms ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) { .civic-rise, .civic-fill, .civic-pulse { animation: none; } }
+
+.patriotic-page { background: radial-gradient(circle at 10% 25%, #eaf5ff 0, transparent 31%), linear-gradient(180deg, #f7fbff 0%, #ffffff 58%, #eff8ff 100%); }
+.gov-banner { background: linear-gradient(105deg, #073d80 0%, #0b579e 60%, #08427f 100%); box-shadow: 0 3px 16px rgb(10 62 124 / 18%); }
+.gov-footer { background: #073d80; color: #fff; padding: 1.15rem 1rem; text-align: center; font-size: .8rem; }
+.motion-float { animation: mascot-float 4s ease-in-out infinite; }
+@keyframes mascot-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-8px) rotate(1deg); } }
+.action-tile { position: relative; display: flex; min-height: 150px; flex-direction: column; align-items: center; justify-content: center; border-radius: 1.1rem; border: 1px solid; padding: 1rem; text-align: center; transition: transform .25s ease, box-shadow .25s ease; }
+.action-tile:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgb(15 59 105 / 12%); }
+.action-blue { border-color: #abd1f8; background: #edf7ff; color: #123d78; }.action-blue .tile-icon { background: #0b69c4; }
+.action-green { border-color: #b7e4c8; background: #f0fbf4; color: #123d78; }.action-green .tile-icon { background: #168c57; }
+.action-orange { border-color: #f5c997; background: #fff8ef; color: #123d78; }.action-orange .tile-icon { background: #f07e12; }
+.action-tile > .absolute { background: #0b55a2; }.action-orange > .absolute { background: #f07e12; }
+.tile-icon { display: grid; height: 4rem; width: 4rem; place-items: center; border-radius: 999px; color: white; }
+.section-heading { display: flex; align-items: center; gap: 1rem; justify-content: center; color: #123d78; font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 800; }
+.section-heading::before, .section-heading::after { content: ""; height: 1px; width: 4rem; background: #a6cdf2; }
+.translate-shell { display: flex; align-items: center; border-radius: 999px; background: #fff; padding: .45rem .8rem; color: #123d78; font-size: .8rem; }
+.translate-runtime { display: none !important; height: 0 !important; width: 0 !important; overflow: hidden !important; }
+.mentor-fab { z-index: 60; animation: mentor-bob 3s ease-in-out infinite; }
+@keyframes mentor-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.goog-te-gadget { font-size: 0 !important; }.goog-te-combo { border: 1px solid #c7ddf4; border-radius: 999px; background: white; padding: .35rem .6rem; color: #123d78; font-size: .8rem; }
+body { overflow-x: hidden; }
