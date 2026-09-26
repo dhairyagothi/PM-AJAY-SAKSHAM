@@ -73,10 +73,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "PM-AJAY SAKSHAM — Skills and Opportunities" },
+      { title: "PM-AJAY SAKSHAM - MOSJE" },
       { name: "description", content: "A beneficiary-first PM-AJAY experience for learning, skills, and employment opportunities." },
       { name: "author", content: "PM-AJAY SAKSHAM" },
-      { property: "og:title", content: "PM-AJAY SAKSHAM — Skills and Opportunities" },
+      { property: "og:title", content: "PM-AJAY SAKSHAM" },
       { property: "og:description", content: "A beneficiary-first PM-AJAY experience for learning, skills, and employment opportunities." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

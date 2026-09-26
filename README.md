@@ -15,6 +15,13 @@ npm run dev
 
 npm run build
 
+## Deploy to Vercel
+
+Import the repository into Vercel and use the `Vite` framework preset. The
+repository's `vercel.json` builds the TanStack Start server, publishes
+`dist/client` as static assets, and routes page requests through the SSR
+function in `api/ssr.js`.
+
 ## Development
 
 Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
