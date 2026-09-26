@@ -2,15 +2,18 @@
 
 @connector:github:"GitHub API"
 
-This project was built with [Lovable](https://lovable.dev).
+# PM-AJAY SAKSHAM
 
-## Build with Lovable
+A TanStack Start app for beneficiary-facing skills, learning, and opportunity discovery.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/9bfc2b89-fbf0-46de-94db-9738def87944).
+## Getting started
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+npm install
+npm run dev
+
+## Build
+
+npm run build
 
 ## Development
 

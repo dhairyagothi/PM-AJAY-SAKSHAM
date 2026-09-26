@@ -10,33 +10,295 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as CareerPassportRouteImport } from './routes/career-passport'
+import { Route as HelpRouteImport } from './routes/help'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as LanguageRouteImport } from './routes/language'
+import { Route as LearningRouteImport } from './routes/learning'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as OpportunitiesRouteImport } from './routes/opportunities'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as VoiceRouteImport } from './routes/voice'
+import { Route as ApplicationsIdRouteImport } from './routes/applications.$id'
+import { Route as OpportunitiesOpportunityIdRouteImport } from './routes/opportunities.$opportunityId'
+import { Route as SkillsGapRouteImport } from './routes/skills.gap'
+import { Route as LearningCourseIdLessonLessonIdRouteImport } from './routes/learning.$courseId.lesson.$lessonId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareerPassportRoute = CareerPassportRouteImport.update({
+  id: '/career-passport',
+  path: '/career-passport',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LanguageRoute = LanguageRouteImport.update({
+  id: '/language',
+  path: '/language',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearningRoute = LearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OpportunitiesRoute = OpportunitiesRouteImport.update({
+  id: '/opportunities',
+  path: '/opportunities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SkillsRoute = SkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoiceRoute = VoiceRouteImport.update({
+  id: '/voice',
+  path: '/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplicationsIdRoute = ApplicationsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ApplicationsRoute,
+} as any)
+const OpportunitiesOpportunityIdRoute =
+  OpportunitiesOpportunityIdRouteImport.update({
+    id: '/$opportunityId',
+    path: '/$opportunityId',
+    getParentRoute: () => OpportunitiesRoute,
+  } as any)
+const SkillsGapRoute = SkillsGapRouteImport.update({
+  id: '/gap',
+  path: '/gap',
+  getParentRoute: () => SkillsRoute,
+} as any)
+const LearningCourseIdLessonLessonIdRoute =
+  LearningCourseIdLessonLessonIdRouteImport.update({
+    id: '/$courseId/lesson/$lessonId',
+    path: '/$courseId/lesson/$lessonId',
+    getParentRoute: () => LearningRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/applications': typeof ApplicationsRouteWithChildren
+  '/career-passport': typeof CareerPassportRoute
+  '/help': typeof HelpRoute
+  '/home': typeof HomeRoute
+  '/language': typeof LanguageRoute
+  '/learning': typeof LearningRouteWithChildren
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/onboarding': typeof OnboardingRoute
+  '/opportunities': typeof OpportunitiesRouteWithChildren
+  '/profile': typeof ProfileRoute
+  '/quiz': typeof QuizRoute
+  '/settings': typeof SettingsRoute
+  '/skills': typeof SkillsRouteWithChildren
+  '/voice': typeof VoiceRoute
+  '/applications/$id': typeof ApplicationsIdRoute
+  '/opportunities/$opportunityId': typeof OpportunitiesOpportunityIdRoute
+  '/skills/gap': typeof SkillsGapRoute
+  '/learning/$courseId/lesson/$lessonId': typeof LearningCourseIdLessonLessonIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/applications': typeof ApplicationsRouteWithChildren
+  '/career-passport': typeof CareerPassportRoute
+  '/help': typeof HelpRoute
+  '/home': typeof HomeRoute
+  '/language': typeof LanguageRoute
+  '/learning': typeof LearningRouteWithChildren
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/onboarding': typeof OnboardingRoute
+  '/opportunities': typeof OpportunitiesRouteWithChildren
+  '/profile': typeof ProfileRoute
+  '/quiz': typeof QuizRoute
+  '/settings': typeof SettingsRoute
+  '/skills': typeof SkillsRouteWithChildren
+  '/voice': typeof VoiceRoute
+  '/applications/$id': typeof ApplicationsIdRoute
+  '/opportunities/$opportunityId': typeof OpportunitiesOpportunityIdRoute
+  '/skills/gap': typeof SkillsGapRoute
+  '/learning/$courseId/lesson/$lessonId': typeof LearningCourseIdLessonLessonIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/applications': typeof ApplicationsRouteWithChildren
+  '/career-passport': typeof CareerPassportRoute
+  '/help': typeof HelpRoute
+  '/home': typeof HomeRoute
+  '/language': typeof LanguageRoute
+  '/learning': typeof LearningRouteWithChildren
+  '/login': typeof LoginRoute
+  '/notifications': typeof NotificationsRoute
+  '/onboarding': typeof OnboardingRoute
+  '/opportunities': typeof OpportunitiesRouteWithChildren
+  '/profile': typeof ProfileRoute
+  '/quiz': typeof QuizRoute
+  '/settings': typeof SettingsRoute
+  '/skills': typeof SkillsRouteWithChildren
+  '/voice': typeof VoiceRoute
+  '/applications/$id': typeof ApplicationsIdRoute
+  '/opportunities/$opportunityId': typeof OpportunitiesOpportunityIdRoute
+  '/skills/gap': typeof SkillsGapRoute
+  '/learning/$courseId/lesson/$lessonId': typeof LearningCourseIdLessonLessonIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/applications'
+    | '/career-passport'
+    | '/help'
+    | '/home'
+    | '/language'
+    | '/learning'
+    | '/login'
+    | '/notifications'
+    | '/onboarding'
+    | '/opportunities'
+    | '/profile'
+    | '/quiz'
+    | '/settings'
+    | '/skills'
+    | '/voice'
+    | '/applications/$id'
+    | '/opportunities/$opportunityId'
+    | '/skills/gap'
+    | '/learning/$courseId/lesson/$lessonId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/applications'
+    | '/career-passport'
+    | '/help'
+    | '/home'
+    | '/language'
+    | '/learning'
+    | '/login'
+    | '/notifications'
+    | '/onboarding'
+    | '/opportunities'
+    | '/profile'
+    | '/quiz'
+    | '/settings'
+    | '/skills'
+    | '/voice'
+    | '/applications/$id'
+    | '/opportunities/$opportunityId'
+    | '/skills/gap'
+    | '/learning/$courseId/lesson/$lessonId'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/applications'
+    | '/career-passport'
+    | '/help'
+    | '/home'
+    | '/language'
+    | '/learning'
+    | '/login'
+    | '/notifications'
+    | '/onboarding'
+    | '/opportunities'
+    | '/profile'
+    | '/quiz'
+    | '/settings'
+    | '/skills'
+    | '/voice'
+    | '/applications/$id'
+    | '/opportunities/$opportunityId'
+    | '/skills/gap'
+    | '/learning/$courseId/lesson/$lessonId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  ApplicationsRoute: typeof ApplicationsRouteWithChildren
+  CareerPassportRoute: typeof CareerPassportRoute
+  HelpRoute: typeof HelpRoute
+  HomeRoute: typeof HomeRoute
+  LanguageRoute: typeof LanguageRoute
+  LearningRoute: typeof LearningRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  NotificationsRoute: typeof NotificationsRoute
+  OnboardingRoute: typeof OnboardingRoute
+  OpportunitiesRoute: typeof OpportunitiesRouteWithChildren
+  ProfileRoute: typeof ProfileRoute
+  QuizRoute: typeof QuizRoute
+  SettingsRoute: typeof SettingsRoute
+  SkillsRoute: typeof SkillsRouteWithChildren
+  VoiceRoute: typeof VoiceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +310,214 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career-passport': {
+      id: '/career-passport'
+      path: '/career-passport'
+      fullPath: '/career-passport'
+      preLoaderRoute: typeof CareerPassportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/language': {
+      id: '/language'
+      path: '/language'
+      fullPath: '/language'
+      preLoaderRoute: typeof LanguageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learning': {
+      id: '/learning'
+      path: '/learning'
+      fullPath: '/learning'
+      preLoaderRoute: typeof LearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/opportunities': {
+      id: '/opportunities'
+      path: '/opportunities'
+      fullPath: '/opportunities'
+      preLoaderRoute: typeof OpportunitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/skills': {
+      id: '/skills'
+      path: '/skills'
+      fullPath: '/skills'
+      preLoaderRoute: typeof SkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voice': {
+      id: '/voice'
+      path: '/voice'
+      fullPath: '/voice'
+      preLoaderRoute: typeof VoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/applications/$id': {
+      id: '/applications/$id'
+      path: '/$id'
+      fullPath: '/applications/$id'
+      preLoaderRoute: typeof ApplicationsIdRouteImport
+      parentRoute: typeof ApplicationsRoute
+    }
+    '/opportunities/$opportunityId': {
+      id: '/opportunities/$opportunityId'
+      path: '/$opportunityId'
+      fullPath: '/opportunities/$opportunityId'
+      preLoaderRoute: typeof OpportunitiesOpportunityIdRouteImport
+      parentRoute: typeof OpportunitiesRoute
+    }
+    '/skills/gap': {
+      id: '/skills/gap'
+      path: '/gap'
+      fullPath: '/skills/gap'
+      preLoaderRoute: typeof SkillsGapRouteImport
+      parentRoute: typeof SkillsRoute
+    }
+    '/learning/$courseId/lesson/$lessonId': {
+      id: '/learning/$courseId/lesson/$lessonId'
+      path: '/$courseId/lesson/$lessonId'
+      fullPath: '/learning/$courseId/lesson/$lessonId'
+      preLoaderRoute: typeof LearningCourseIdLessonLessonIdRouteImport
+      parentRoute: typeof LearningRoute
+    }
   }
 }
 
+interface ApplicationsRouteChildren {
+  ApplicationsIdRoute: typeof ApplicationsIdRoute
+}
+
+const ApplicationsRouteChildren: ApplicationsRouteChildren = {
+  ApplicationsIdRoute: ApplicationsIdRoute,
+}
+
+const ApplicationsRouteWithChildren = ApplicationsRoute._addFileChildren(
+  ApplicationsRouteChildren,
+)
+
+interface LearningRouteChildren {
+  LearningCourseIdLessonLessonIdRoute: typeof LearningCourseIdLessonLessonIdRoute
+}
+
+const LearningRouteChildren: LearningRouteChildren = {
+  LearningCourseIdLessonLessonIdRoute: LearningCourseIdLessonLessonIdRoute,
+}
+
+const LearningRouteWithChildren = LearningRoute._addFileChildren(
+  LearningRouteChildren,
+)
+
+interface OpportunitiesRouteChildren {
+  OpportunitiesOpportunityIdRoute: typeof OpportunitiesOpportunityIdRoute
+}
+
+const OpportunitiesRouteChildren: OpportunitiesRouteChildren = {
+  OpportunitiesOpportunityIdRoute: OpportunitiesOpportunityIdRoute,
+}
+
+const OpportunitiesRouteWithChildren = OpportunitiesRoute._addFileChildren(
+  OpportunitiesRouteChildren,
+)
+
+interface SkillsRouteChildren {
+  SkillsGapRoute: typeof SkillsGapRoute
+}
+
+const SkillsRouteChildren: SkillsRouteChildren = {
+  SkillsGapRoute: SkillsGapRoute,
+}
+
+const SkillsRouteWithChildren =
+  SkillsRoute._addFileChildren(SkillsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  ApplicationsRoute: ApplicationsRouteWithChildren,
+  CareerPassportRoute: CareerPassportRoute,
+  HelpRoute: HelpRoute,
+  HomeRoute: HomeRoute,
+  LanguageRoute: LanguageRoute,
+  LearningRoute: LearningRouteWithChildren,
+  LoginRoute: LoginRoute,
+  NotificationsRoute: NotificationsRoute,
+  OnboardingRoute: OnboardingRoute,
+  OpportunitiesRoute: OpportunitiesRouteWithChildren,
+  ProfileRoute: ProfileRoute,
+  QuizRoute: QuizRoute,
+  SettingsRoute: SettingsRoute,
+  SkillsRoute: SkillsRouteWithChildren,
+  VoiceRoute: VoiceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
